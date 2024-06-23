@@ -1,0 +1,15 @@
+{
+	"StartAt": "Execute function",
+	"States": {
+	  "Execute function": {
+		"Type": "Task",
+		"Resource": "arn:aws:states:::lambda:invoke",
+		"OutputPath": "$.Payload",
+		"Parameters": {
+		  "FunctionName": "${HELLO_LAMBDA_FUNCTION_NAME}",
+		  "Payload.$": "$"
+		},
+		"End": true
+	  }
+	}
+  }
